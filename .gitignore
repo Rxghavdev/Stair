@@ -1,0 +1,18 @@
+
+
+.env
+*.env
+package-lock.json/
+package.json/
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Flask and other Python files
+instance/
+*.log
+
+# Node.js-related files
+node_modules/
