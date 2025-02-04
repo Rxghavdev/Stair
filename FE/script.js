@@ -5,7 +5,6 @@ async function sendMessage() {
   const message = userInput.value.trim();
   if (!message) return;
 
-  // Add user message to chat box with proper structure
   const userMessageDiv = document.createElement("div");
   userMessageDiv.classList.add("chat-message", "user");
   const userMessageContent = document.createElement("div");
@@ -14,15 +13,13 @@ async function sendMessage() {
   userMessageDiv.appendChild(userMessageContent);
   chatBox.appendChild(userMessageDiv);
 
-  // Clear the input field
   userInput.value = "";
 
-  // Scroll to the latest message
   chatBox.scrollTop = chatBox.scrollHeight;
 
   // Send request to backend
   try {
-    const response = await fetch("http://localhost:5000/chat", {
+    const response = await fetch("https://stair.onrender.com/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +29,6 @@ async function sendMessage() {
 
     const data = await response.json();
 
-    // Add bot's response to chat box with proper structure
     const botMessageDiv = document.createElement("div");
     botMessageDiv.classList.add("chat-message", "bot");
     const botMessageContent = document.createElement("div");
@@ -41,7 +37,6 @@ async function sendMessage() {
     botMessageDiv.appendChild(botMessageContent);
     chatBox.appendChild(botMessageDiv);
 
-    // Scroll to the latest message
     chatBox.scrollTop = chatBox.scrollHeight;
   } catch (error) {
     console.error("Error:", error);
